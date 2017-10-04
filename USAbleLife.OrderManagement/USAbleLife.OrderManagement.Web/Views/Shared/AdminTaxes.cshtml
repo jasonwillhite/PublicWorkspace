@@ -1,0 +1,39 @@
+﻿@model List<USAbleLife.OrderManagement.Data.DataAccess.Tax>
+<table style="margin-bottom: 25px">
+    <thead>
+        <tr>
+            <th style="width: 180px">Name</th>
+            <th style="width: 180px">Percentage</th>
+        </tr>
+    </thead>
+    @foreach (var tax in Model)
+    {
+        <tr>
+            <td><a href="javascript:editTax(@($"{tax.Percentage}, '{tax.Name}', {tax.Id}"))">@tax.Name</a></td>
+            <td>@tax.Percentage</td>
+            <td><button class="main-button" onclick="deleteTax(@tax.Id);">delete</button></td>
+        </tr>
+    }
+</table>
+<button id="addNewTaxButton" class="main-button" onclick="showNewDialog();">Add New Tax</button>
+<div id="dialog-form" title="Edit Tax">
+    <p class="validateTips" style="color:red" id="errorLabel"></p>
+    <p class="validateTips">All form fields are required.</p>
+    <input type="hidden" id="id"/>
+    <form>
+        <table style="width: 100%">
+            <tr>
+                <td> <label>Name</label> </td>
+                <td> <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>Amount</label> </td>
+                <td> <input type="number" onkeypress="return isNumberKey(event)" step="1" name="amount" pattern="[0-9]+" id="amount" value="" class="text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button tabindex="-1" style="float: right" onclick="saveTax(); return false;">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>

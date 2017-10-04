@@ -1,0 +1,13 @@
+﻿@using USAbleLife.OrderManagement.Web.Common
+@model USAbleLife.OrderManagement.Data.DataAccess.MealOrder
+
+<div class="order">
+    <h4>@($"Server: {Model.ServerName}")</h4>
+    <h4 style="margin-top: -5px">@($"Date: {Model.Created}")</h4>
+    <p>@HtmlHelpers.PaddedString("SubTotal", $"{Model.SubTotal:C}", '.', 50)</p>
+    <p>@HtmlHelpers.PaddedString("Discount", $"{Model.TotalDiscount:C}", '.', 50)</p>
+    <p>@HtmlHelpers.PaddedString("Pretax Total", $"{Model.PreTaxTotal:C}", '.', 53)</p>
+    <p>@HtmlHelpers.PaddedString("Tax", $"{Model.TotalTax:C}", '.', 48)</p>
+    <p>@HtmlHelpers.PaddedString("-", "-", '-', 50)</p>
+    <p><b>@HtmlHelpers.PaddedString("Total", $"{Model.Total:C}", '.', 50)</b></p>
+</div>

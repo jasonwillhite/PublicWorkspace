@@ -1,0 +1,55 @@
+﻿@using USAbleLife.OrderManagement.Data.DataAccess
+@model List<Discount>
+<table style="margin-bottom: 25px">
+    <thead>
+        <tr>
+            <th style="width: 180px">Name</th>
+            <th style="width: 180px">Amount</th>
+            <th style="width: 180px">Type</th>
+            <th style="width: 180px">Action</th>
+        </tr>
+    </thead>
+    @foreach (var discount in Model)
+    {
+        <tr>
+            <td><a href="javascript:editDiscount(@($"{discount.Amount}, '{discount.Name}', {discount.Type}, {discount.Id}"))">@discount.Name</a></td>
+            <td>@discount.Amount</td>
+            <td>@discount.TypeOfDiscount</td>
+            <td><button class="main-button" onclick="deleteDiscount(@discount.Id);">delete</button></td>
+        </tr>
+    }
+</table>
+<button id="addNewDiscountButton" class="main-button" onclick="showNewDialog();">Add New Discount</button>
+<div id="dialog-form" title="Edit Discount">
+    <p class="validateTips" style="color:red" id="errorLabel"></p>
+    <p class="validateTips">All form fields are required.</p>
+    <input type="hidden" id="discount-id"/>
+    <form>
+        <table style="width: 100%">
+            <tr>
+                <td> <label>Name</label> </td>
+                <td> <input type="text" name="name" id="discount-name" value="" class="addEdit text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>Amount</label> </td>
+                <td> <input type="number" min="0" name="amount" id="discount-amount" value="" class="addEdit text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>Type</label> </td>
+                <td>
+                    <select id="discount-type" class="addEdit text ui-widget-content ui-corner-all">
+                        @foreach (var type in Enum.GetValues(typeof(DiscountType)))
+                        {
+                            <option value="@((int) type)" id="@((int) type)">@type.ToString()</option>
+                        }
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button tabindex="-1" style="float: right" onclick="saveDiscount(); return false;">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>

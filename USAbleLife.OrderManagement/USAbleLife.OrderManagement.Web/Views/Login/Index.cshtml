@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Order Management System</title>
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/lib/login.js"></script>
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="margin-left: 0; margin-right: 0; max-width: none; background: #333">
+            <div class="navbar-header" style="width: 100%">
+                <img id="LoginLogo" src="../../Images/MealIcon.png" />
+                <a class="navbar-brand" href="~/" style="margin-left: 5px; color: #fff; font-size: 26px; margin-top:10px">Meal Order Management System</a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content outerContainer">
+        <div id="LoginForm" class="ShadowBox">
+            <span id="LoginHeader">Login</span>
+            <div class="ClearStyleDiv" style="height: 20px"></div>
+            <div class="ClearStyleDiv"></div>
+            <div id="UsernameRow">
+                <label name="usernameLabel">Username</label>
+                <input type="text" id="usernameTextBox" />
+                <div class="ClearStyleDiv"></div>
+            </div>
+            <div id="PasswordRow">
+                <label name="passwordLabel">Password</label>
+                <input id="passwordTextBox" name="passwordTextBox" type="password" />
+                <div class="ClearStyleDiv"></div>
+            </div>
+            <div id="CredentialsValidation">
+                <p id="invalidLogin" class="error both-invalid content-none">Username and/or password do not match!!</p>
+            </div>
+            <div class="ClearStyleDiv" style="height: 20px"></div>
+            <div id="CommandsRow">
+                <input type="submit" id="LoginButton" value="Login" class="main-button" onclick="login()" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

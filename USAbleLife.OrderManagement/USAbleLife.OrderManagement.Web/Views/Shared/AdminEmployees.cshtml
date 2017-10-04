@@ -1,0 +1,54 @@
+﻿@model List<USAbleLife.OrderManagement.Data.DataAccess.Employee>
+<table style="margin-bottom: 25px">
+    <thead>
+        <tr>
+            <th style="width: 180px">Username</th>
+            <th style="width: 180px">First Name</th>
+            <th style="width: 180px">Last Name</th>
+            <th style="width: 180px">Action</th>
+        </tr>
+    </thead>
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td><a href="javascript:editEmployee(@($"'{employee.Username}', '{employee.FirstName}', '{employee.LastName}', {employee.Id}"))">@employee.Username</a></td>
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td><button class="main-button" onclick="deleteEmployee(@employee.Id);">delete</button></td>
+        </tr>
+    }
+</table>
+<button id="opener" class="main-button" onclick="showNewDialog();">Add New Employee</button>
+<div id="dialog-form" title="Edit Employee">
+    <p class="validateTips" style="color:red" id="errorLabel"></p>
+    <p class="validateTips">All form fields are required.</p>
+    <input type="hidden" id="id"/>
+    <form>
+        <table style="width: 100%">
+            <tr>
+                <td> <label>Username</label> </td>
+                <td> <input type="text" name="username" id="username" value="" class="text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>First Name</label> </td>
+                <td> <input type="text" name="firstname" id="firstname" value="" class="text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>Last Name</label> </td>
+                <td> <input type="text" name="lastname" id="lastname" value="" class="text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>Change Password</label> </td>
+                <td> <input type="checkbox" name="changePassword" id="changePassword" value="" class="text ui-widget-content ui-corner-all" onchange="changePasswordCheckChanged(this)"> </td>
+            </tr>
+            <tr>
+                <td> <label>Password</label> </td>
+                <td> <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" disabled="disabled"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button tabindex="-1" style="float: right" onclick="saveEmployee(); return false;">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+﻿@model List<USAbleLife.OrderManagement.Data.DataAccess.MenuItem>
+<table style="margin-bottom: 25px">
+    <thead>
+        <tr>
+            <th style="width: 180px">Name</th>
+            <th style="width: 180px">Amount</th>
+            <th style="width: 180px">Action</th>
+        </tr>
+    </thead>
+    @foreach (var menuItem in Model)
+    {
+        <tr>
+            <td><a href="javascript:editMenuItem(@($"'{menuItem.Name}', {menuItem.Price}, {menuItem.Id}"))">@menuItem.Name</a></td>
+            <td>@menuItem.Price</td>
+            <td><button class="main-button" onclick="deleteMenuItem(@menuItem.Id);">delete</button></td>
+        </tr>
+    }
+</table>
+<button id="addNewMenuItemButton" class="main-button" onclick="showNewDialog();">Add New MenuItem</button>
+<div id="dialog-form" title="Edit MenuItem">
+    <p class="validateTips" style="color:red" id="errorLabel"></p>
+    <p class="validateTips">All form fields are required.</p>
+    <input type="hidden" id="id"/>
+    <form>
+        <table style="width: 100%">
+            <tr>
+                <td> <label>Name</label> </td>
+                <td> <input type="text" name="name" id="name" value="" class="addEdit text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td> <label>Price</label> </td>
+                <td> <input type="number" step=".01" name="amount" id="amount" value="" class="addEdit text ui-widget-content ui-corner-all"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button tabindex="-1" style="float: right" onclick="saveMenuItem(); return false;">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>

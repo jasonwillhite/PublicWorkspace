@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="OrderManagementDataContext">
+  <DataContextMoniker Name="/OrderManagementDataContextDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e992e458-160c-4b68-b4f0-dde5978ebe4a" absoluteBounds="8.375, 2.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/MealOrderItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41821b15-ac8b-48db-9cad-b13c56aca853" absoluteBounds="8.39, 2.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="582a4837-2efe-4edd-8a6d-95f569066583" absoluteBounds="3.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/MealOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3feae187-3ca2-4200-a280-5b116a1c7035" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e8bb445-5627-4978-9b9f-ca2784b83d3d" absoluteBounds="0.75, 6.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/MealOrderTax" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3bc1009c-c585-4ab6-82dc-15a7f1c730a5" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="39f8b38a-bf0e-4991-81c3-313ead50399d" absoluteBounds="7.125, 5.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/Discount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9297259-fba6-45fb-9f42-0c485d9cb4da" absoluteBounds="7.14, 5.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5da3421d-3d1e-4b0f-94e0-71c905a57cd1" absoluteBounds="0.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9899b1d-ef44-4520-aedd-91c0c47e9722" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e0f4c17-1064-419c-994f-b1ab80fed296" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/MenuItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa6440ee-eedd-4903-b12c-7fba34d23541" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82853419-6582-4034-a7a1-0be84dda523c" absoluteBounds="1, 3.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/OrderManagementDataContextDataContext/Tax" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c692bb07-d987-4dd1-9a18-31b3906062e3" absoluteBounds="1.0149999999999997, 3.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

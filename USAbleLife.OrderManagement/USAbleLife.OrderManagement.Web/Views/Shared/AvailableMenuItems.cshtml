@@ -1,0 +1,25 @@
+﻿@model List<USAbleLife.OrderManagement.Data.DataAccess.MenuItem>
+
+<div id="itemsDiv">
+    <h2>Items</h2>
+    <table>
+        <tr>
+            <th style="width: 155px">Name</th>
+            <th style="width: 155px">Price</th>
+            <th style="width: 165px">Option</th>
+        </tr>
+        @foreach (var menuItem in Model)
+        {
+            <tr>
+                <td style="width: 155px">@menuItem.Name</td>
+                <td style="width: 155px">@($"{menuItem.Price:C}")</td>
+                <td style="width: 165px">
+                    <ul style="list-style-type: none; display: inline">
+                        <li style="float: left; display: inline"><input type="button" class="main-button" value="add" onclick="addItemToOrder(@menuItem.Id);"/></li> 
+                        <li style="float: left; display: inline; margin-left: 5px"><input type="button" class="main-button" value="remove" onclick="removeItemFromOrder(@menuItem.Id);"/></li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

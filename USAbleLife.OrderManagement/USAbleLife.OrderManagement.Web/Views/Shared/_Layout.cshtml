@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Order Meal Management System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="margin-left: 0; margin-right: 0; max-width: none; background: #333">
+            <div class="navbar-header" style="width: 100%">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="logo" src="../../Images/MealIcon.png" />
+                <a class="navbar-brand" runat="server" href="~/" style="margin-left: 5px; color: #fff; font-size: 26px">Order Meal Management System</a>
+                <ul class="nav navbar-nav" style="margin-left: 50px">
+                    <li id="HomeLink" class="active"> @Html.RouteLink("Order Dashboard", new {controller = "Home", action = "Index"})</li>
+                    <li id="OrderLink" style="margin-left: 35px">@Html.RouteLink("Place Order", new { controller = "Order", action = "Index" })</li>
+                    <li id="AdminLink" style="margin-left: 35px">@Html.RouteLink("Admin", new { controller = "Admin", action = "Index" })</li>
+                </ul>
+                <ul class="nav navbar-nav" style="float: right; display: inline">
+                    @*<li><a style="color: white" href="javascript:Logout()">Logout</a></li>*@
+                    <li>@Html.RouteLink("Logout", new { controller = "Login", action = "Logout" })</li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="margin: 0; max-width: none">
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿@using USAbleLife.OrderManagement.Web.Models
+@model MealOrderPagingResult
+@{
+    ViewBag.Title = "Home Page";
+    long newMealOrderId = ViewBag.NewMealOrderId;
+}
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/lib/home.js")
+}
+
+<div id="outerDiv" style="overflow: hidden">
+    <ul class="menu" style="height: 45px">
+        <li style="float: left">
+            <div class="triangle-topleft" style="border-top: 50px solid #90EE90;">
+            </div>
+        </li>
+        <li style="float: left">
+            <h3 style="margin-bottom: -20px; margin-left: -10px; margin-top: 10px; display: inline-block">Order Dashboard</h3>
+        </li>
+    </ul>
+
+    <table style="margin-left:30px">
+        <tr>
+            <td style="width: 50%">
+                <table style="width: 100%; margin: 10px; margin-left: 25px">
+                    <tbody>
+                    @for (int i = 0; i < Model.MealOrders.Count;)
+                    {
+                        <tr>
+                            @for (int j = 0; j < 3 && i < Model.MealOrders.Count; j++, i++)
+                            {
+                                <td class="orderItem" id="@Model.MealOrders[i].Id" onclick="getOrderSummary(@Model.MealOrders[i].Id)">
+                                    @if (Model.MealOrders[i].Id == newMealOrderId)
+                                    {
+                                        <h4>New!</h4>
+                                    }
+                                    @Html.Partial("OrderOverview", Model.MealOrders[i])
+                                </td>
+                            }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </td>
+            <td id="orderSummaryDiv" style="width: 50%; height:100%; vertical-align: top;">
+                @Html.Partial("OrderSummary", new OrderCart())
+            </td>
+        </tr>
+    </table>
+    <div class="pager" style="margin-left: auto; margin-right: auto; width: 50%; float: left">
+        <label class="PageLink">Pages:&nbsp;</label>
+        @for (int i = 1; i < Model.TotalNumberOfPages + 1; i++)
+        {
+            <a href="@Url.Action("Index", new {Page = i})" class="PageLink @(i == Model.CurrentPage ? "selected" : null)">@i.ToString()</a>
+        }
+    </div>
+</div>

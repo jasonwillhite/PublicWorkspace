@@ -1,0 +1,44 @@
+﻿@model USAbleLife.OrderManagement.Web.Models.OrderCart
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    @Scripts.Render("~/Scripts/lib/order.js")
+}
+
+<div id="outerDiv" style="overflow: hidden">
+    <ul class="menu" style="height: 45px">
+        <li style="float: left">
+            <div class="triangle-topleft" style="border-top: 50px solid #87CEEB;">
+            </div>
+        </li>
+        <li style="float: left">
+            <h3 style="margin-bottom: -20px; margin-left: -10px; margin-top: 10px; display: inline-block">Place Order</h3>
+        </li>
+    </ul>
+
+    <table style="width: 100%; margin-left:10px">
+        <tr>
+            <td style="width: 50%">
+                <ul style="list-style-type: none; margin-left: 10px">
+                    <li>
+                        @Html.Partial("AvailableMenuItems", Model.AvailableMenuItems)
+                    </li>
+                    <li>
+                        @Html.Partial("AvailableDiscounts", Model.AvailableDiscounts)
+                    </li>
+                    <li>
+                        @Html.Partial("AvailableTaxes", Model.AvailableTaxes)
+                    </li>
+                </ul>
+            </td>
+            <td id="orderSummaryDiv" style="width: 50%; height: 100%; vertical-align: top">
+                @Html.Partial("OrderSummary", Model);
+            </td>
+        </tr>
+    </table>
+</div>
+

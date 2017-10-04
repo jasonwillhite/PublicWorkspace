@@ -1,0 +1,163 @@
+﻿html {
+    background-color: #f2f2f2;
+    color: #333;
+    font-family: Lucida Grande, Century Gothic, Helvetica, TeXGyreAdventorRegular, Arial, Verdana, sans-serif;
+    font-size: 10pt;
+    height: 100%;
+}
+
+body {
+    text-align: center;
+    height: 100%;
+    background-color: #f2f2f2;
+    background-color: rgba(242, 242, 242, 0.6) !important;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+#LoginLogo {
+    width: 48px;
+    height: 48px;
+    float: left; 
+    margin-top: 10px;
+}
+
+#LoginForm {
+    width: 400px; 
+    height: 225px; 
+    margin: auto; 
+    overflow-y:hidden;
+}
+
+    #LoginForm #LoginHeader {
+        float: left;
+        font-size: 1.6em;
+        color: #009DF7;
+    }
+
+    #LoginForm #UsernameRow label {
+        float: left;
+        margin-top: 7px;
+    }
+
+    #LoginForm #UsernameRow input {
+        float: right;
+        width: 200px;
+    }
+
+    #LoginForm #PasswordRow {
+        margin-top: 0;
+    }
+
+        #LoginForm #PasswordRow label {
+            float: left;
+            margin-top: 7px;
+        }
+
+        #LoginForm #PasswordRow input {
+            float: right;
+            width: 200px;
+        }
+
+
+    #LoginForm #CommandsRow {
+        margin-top: 7px;
+        height: 20px;
+    }
+
+        #LoginForm #CommandsRow a {
+            float: left;
+            margin-top: 4px;
+            color: #009DF7;
+            text-decoration: none;
+            font-size: 8pt;
+            font-family: Verdana;
+        }
+
+            #LoginForm #CommandsRow a:hover {
+                text-decoration: underline;
+            }
+
+            #LoginForm #CommandsRow a:focus {
+                text-decoration: underline;
+            }
+
+        #LoginForm #CommandsRow input {
+            float: right;
+            margin-top: -6px;
+            margin-right: -1px;
+        }
+
+.RememberMeFormRow {
+    margin: 8px 0;
+    text-align: center;
+}
+
+#LoginForm #CredentialsValidation {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+    #LoginForm #CredentialsValidation span {
+        color: Red;
+    }
+
+img {
+    border: 0;
+}
+
+#Footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.ShadowBox {
+    background-color: #fff;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-color: #E5E5E5 #DBDBDB #D2D2D2;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.ClearStyleDiv {
+    clear: both;
+}
+
+.loginButton {
+    width: 80px;
+    height: 32px;
+    overflow: hidden;
+    font-family: TeXGyreAdventorRegular, Century Gothic, Helvetica, Arial;
+    font-size: 10pt;
+    color: #606060;
+}
+
+.outerContainer {
+    margin: 0;
+    max-width: none;
+    background-color: #f2f2f2;
+    background-color: rgba(242, 242, 242, 0.6);
+    display: flex;
+    height: 100%;
+}
+
+.error {
+    color: #F23D38;
+}
+
+.content-none {
+    display: none !important;
+}

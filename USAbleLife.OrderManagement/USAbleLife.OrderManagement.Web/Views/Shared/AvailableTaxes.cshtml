@@ -1,0 +1,21 @@
+﻿@model List<USAbleLife.OrderManagement.Data.DataAccess.Tax>
+
+<div id="taxesDiv">
+    <h2>Taxes</h2>
+    <table>
+        <tr>
+            <th style="width: 155px">Selection</th>
+            <th style="width: 155px">Name</th>
+            <th style="width: 155px">Percent</th>
+        </tr>
+        @foreach (var tax in Model)
+        {
+            <tr>
+                <td style="width: 155px"><input type="checkbox" onchange="editTaxOnOrder(this, @tax.Id)" /></td>
+                <td style="width: 155px">@tax.Name</td>
+                <td style="width: 155px">@($"{tax.Percentage} %")</td>
+            </tr>
+        }
+    </table>
+</div>
+

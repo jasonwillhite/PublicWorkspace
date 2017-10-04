@@ -1,0 +1,81 @@
+﻿@using USAbleLife.OrderManagement.Data.DataAccess
+@model USAbleLife.OrderManagement.Web.Models.OrderCart
+
+<div>
+    <h1 style="text-align: center; vertical-align: top; margin-bottom: 50px">Order Summary</h1>
+    <table style="margin-left: auto; margin-right: auto">
+        <thead>
+            <tr>
+                <th style="width: 165px">Item</th>
+                <th style="width: 165px">Quantity</th>
+                <th style="width: 165px">Price</th>
+            </tr>
+        </thead>
+        @foreach (var menuItem in Model.SelectedMenuItems.GroupBy(x => x.Id))
+        {
+            <tr>
+                <td style="width: 165px">@menuItem.FirstOrDefault(x => x.Id == menuItem.Key).Name</td>
+                <td style="width: 165px">@menuItem.ToList().Count</td>
+                <td style="width: 165px">@($"{(menuItem.FirstOrDefault(x => x.Id == menuItem.Key).Price * menuItem.ToList().Count):C}")</td>
+            </tr>
+        }
+        <tfoot style="margin-top: 10px; border-top-style: solid; border-top: medium double #f1f1f1">
+            <tr style="margin-top: 20px">
+                <td>SubTotal</td>
+                <td></td>
+                <td><b>@($"{Model.SelectedMenuItems.Sum(x => x.Price):C}")</b></td>
+            </tr>
+            <tr>
+                @if (Model.SelectedDiscount != null && Model.SelectedDiscount.Id != -1)
+                {
+                    <td>@($"{Model.SelectedDiscount.Name} Discount")</td>
+                    <td></td>
+                    <td>@(Model.SelectedDiscount.TypeOfDiscount == DiscountType.FixedAmount ? $"${Model.SelectedDiscount.Amount}" : $"{Model.SelectedDiscount.Amount} %")</td>
+                }
+            </tr>
+            <tr>
+                <td>Pretax Total</td>
+                <td></td>
+                @{
+                    decimal subtotal = Model.SelectedMenuItems.Sum(x => x.Price);
+                    if (Model.SelectedDiscount != null && Model.SelectedDiscount.TypeOfDiscount == DiscountType.FixedAmount)
+                    {
+                        subtotal = Math.Max(0, subtotal - Model.SelectedDiscount.Amount);
+                    }
+                    else if (Model.SelectedDiscount != null && Model.SelectedDiscount.TypeOfDiscount == DiscountType.Percentage)
+                    {
+                        subtotal = Math.Max(0, subtotal - (subtotal * Model.SelectedDiscount.Amount / 100));
+                    }
+                    <td><b>@($"{subtotal:C}")</b></td>
+                }
+            </tr>
+
+            @foreach (var tax in Model.SelectedTaxes)
+            {
+                <tr>
+                    <td>@($"{tax.Name} Tax")</td>
+                    <td></td>
+                    <td>@($"{tax.Percentage} %")</td>
+                </tr>
+            }
+
+            <tr style="margin-top: 10px; border-top-style: solid; border-top: medium double #f4f4f4">
+                <td><b>Total</b></td>
+                <td></td>
+                @{
+
+                    decimal total = subtotal + subtotal * Model.SelectedTaxes.Sum(x => x.Percentage) / 100;
+                    <td><b>@($"{total:C}")</b></td>
+                }
+            </tr>
+            @if (Model.CanSumbit)
+            {
+                <tr>
+                    <td><input type="button" class="main-button" value="Clear Order" onclick="clearOrder()" disabled="@(!Model.SelectedMenuItems.Any() ? "disabled" : null )" /></td>
+                    <td></td>
+                    <td><input type="button" class="main-button" value="Submit" onclick="submitOrder()" disabled="@(!Model.SelectedMenuItems.Any() ? "disabled" : null )" /></td>
+                </tr>
+            }
+        </tfoot>
+    </table>
+</div>
