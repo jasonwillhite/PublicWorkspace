@@ -340,7 +340,7 @@ function saveMenuItem() {
         type: "POST",
         url: "/Admin/SaveMenuItem",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ "name": name, "amount": amount, "type": type, "id": id }),
+        data: JSON.stringify({ "name": name, "amount": amount, "id": id }),
         success: function (result) {
             if (result.Success === true) {
                 $('#errorLabel').text("");

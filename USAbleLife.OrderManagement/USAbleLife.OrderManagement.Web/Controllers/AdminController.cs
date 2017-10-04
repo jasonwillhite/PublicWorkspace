@@ -161,16 +161,16 @@ namespace USAbleLife.OrderManagement.Web.Controllers
         /// Saves the menu item.
         /// </summary>
         /// <param name="name">The name.</param>
-        /// <param name="price">The price.</param>
+        /// <param name="amount">The amount.</param>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        public ActionResult SaveMenuItem(string name, string price, string id)
+        public ActionResult SaveMenuItem(string name, string amount, string id)
         {
             try
             {
                 long menuItemId;
                 long.TryParse(id, out menuItemId);
-                MenuItem menuItem = new MenuItem { Id = menuItemId, IsDeleted = false, Name = name, Price = decimal.Parse(price)};
+                MenuItem menuItem = new MenuItem { Id = menuItemId, IsDeleted = false, Name = name, Price = decimal.Parse(amount)};
                 Order.SaveMenuItem(menuItem);
                 return Json(new AjaxResult { Error = string.Empty, Success = true });
             }

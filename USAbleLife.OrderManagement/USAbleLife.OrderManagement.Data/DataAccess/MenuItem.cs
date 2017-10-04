@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using USAbleLife.OrderManagement.Data.Exceptions;
@@ -71,7 +72,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         {
             // MenuItem name must be alpha numeric and 1 to 25 characters
             Regex regex = new Regex("^[0-9a-zA-Z ]{1,25}$");
-            return string.IsNullOrEmpty(name) && regex.Match(name).Success;
+            return !string.IsNullOrEmpty(name) && regex.Match(name).Success;
         }
 
         /// <summary>
@@ -92,7 +93,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         /// <returns></returns>
         internal static bool MenuItemPriceIsValid(decimal price)
         {
-            return BitConverter.GetBytes(decimal.GetBits(price)[3])[2] <= 2 && price >= 0 && price <= 100;
+            return new Regex(@"^\d{0,8}(\.\d{1,4})?$").Match(price.ToString(CultureInfo.InvariantCulture)).Success;
         }
 
         /// <summary>
