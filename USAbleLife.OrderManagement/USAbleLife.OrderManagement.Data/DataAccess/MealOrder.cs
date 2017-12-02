@@ -65,7 +65,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         /// <value>
         /// The total discount.
         /// </value>
-        public decimal TotalDiscount => Discount.GetDiscountAmount(Id);
+        public decimal TotalDiscount => 0;//Discount.GetDiscountAmount(Id);
 
         /// <summary>
         /// Gets the total tax.
@@ -73,7 +73,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         /// <value>
         /// The total tax.
         /// </value>
-        public decimal TotalTax => PreTaxTotal * Tax.GetTotalTax(Id) / 100;
+        public decimal TotalTax => 0;//sPreTaxTotal * Tax.GetTotalTax(Id) / 100;
 
         /// <summary>
         /// Gets the meal order.

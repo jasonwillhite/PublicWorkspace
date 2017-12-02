@@ -13,7 +13,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         /// <returns></returns>
         internal static List<Tax> GetAllTaxes()
         {
-            return new OrderManagementDataContext().Taxes.Where(x => !x.IsDeleted ?? true).ToList();
+            return new OrderManagementDataContext().Taxes.ToList();
         }
 
         /// <summary>

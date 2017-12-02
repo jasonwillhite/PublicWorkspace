@@ -26,8 +26,7 @@ namespace USAbleLife.OrderManagement.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=USAbleLifeOrderManagement;User ID=USAbleLifeAdmin;P" +
-            "assword=\"*^TgbHJ765rdfG==\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=USAbleLifeOrderManagement;User ID=sa;Password=P@55w0rd")]
         public string USAbleLifeOrderManagementConnectionString {
             get {
                 return ((string)(this["USAbleLifeOrderManagementConnectionString"]));

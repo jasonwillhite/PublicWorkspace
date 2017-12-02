@@ -692,7 +692,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
 		
 		private string _Password;
 		
-		private System.Nullable<bool> _IsDeleted;
+		private bool _IsDeleted;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -708,7 +708,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
     partial void OnLastNameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnIsDeletedChanging(System.Nullable<bool> value);
+    partial void OnIsDeletedChanging(bool value);
     partial void OnIsDeletedChanged();
     #endregion
 		
@@ -817,8 +817,8 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit")]
-		public System.Nullable<bool> IsDeleted
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit NOT NULL", CanBeNull = false)]
+		public bool IsDeleted
 		{
 			get
 			{

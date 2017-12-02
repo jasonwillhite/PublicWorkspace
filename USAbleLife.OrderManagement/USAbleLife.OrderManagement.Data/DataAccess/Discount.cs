@@ -16,7 +16,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         /// <returns></returns>
         internal static List<Discount> GetAllDiscounts(bool autoLoadNoneDiscount = true)
         {
-            List<Discount> discounts = new OrderManagementDataContext().Discounts.Where(x => !x.IsDeleted ?? true).ToList();
+            List<Discount> discounts = new OrderManagementDataContext().Discounts.ToList();
             if (autoLoadNoneDiscount)
             {
                 discounts.Insert(0, new Discount { Amount = 0, Id = -1, Name = "None" }); // Add the 'None' option

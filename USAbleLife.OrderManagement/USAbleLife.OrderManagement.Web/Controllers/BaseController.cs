@@ -15,6 +15,7 @@ namespace USAbleLife.OrderManagement.Web.Controllers
         /// <param name="filterContext">Information about the current request and action.</param>
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
+            System.Diagnostics.Debug.WriteLine($"Hello {filterContext.ActionDescriptor.ActionName}");
             if (filterContext.ActionDescriptor.GetCustomAttributes(false).Any(x => x is IgnoreAttribute))
             {
                 base.OnAuthorization(filterContext);

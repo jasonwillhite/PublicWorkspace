@@ -27,14 +27,20 @@ namespace USAbleLife.OrderManagement.Web.Controllers
         [Ignore]
         public ActionResult UserLogin(string username, string password)
         {
-            Employee securityToken = Admin.Login(username, password);
-            if (securityToken != null)
+            try
             {
-                Session[Constants.SecurityTokenKey] = securityToken;
-                return Json(new AjaxResult { Success = true, Value = "Logged in" });
+                Employee securityToken = Admin.Login(username, password);
+                if (securityToken != null)
+                {
+                    Session[Constants.SecurityTokenKey] = securityToken;
+                    return Json(new AjaxResult { Success = true, Value = "Logged in" });
+                }
             }
-
-            return Json(new AjaxResult { Success = false, Value = "Username or password was incorrect" });
+            catch (System.Exception ex)
+            {
+                return Json(new AjaxResult { Success = false, Value = ex.InnerException });
+            }
+            return null;
         }
 
         public ActionResult Logout()

@@ -15,7 +15,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         /// <returns></returns>
         internal static List<MenuItem> GetAllMenuItems()
         {
-            return new OrderManagementDataContext().MenuItems.Where(x => !x.IsDeleted ?? true).ToList();
+            return new OrderManagementDataContext().MenuItems.ToList();
         }
 
         /// <summary>

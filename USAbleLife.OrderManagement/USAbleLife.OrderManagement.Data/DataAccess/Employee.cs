@@ -18,7 +18,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         {
             OrderManagementDataContext context = new OrderManagementDataContext();
             string hashPassword = Security.GetMd5Hash(password);
-            Employee employee = context.Employees.FirstOrDefault(x => x.Username == username && x.Password == hashPassword && (!x.IsDeleted ?? true));
+            Employee employee = context.Employees.FirstOrDefault(x => x.Username == username && x.Password == hashPassword && x.IsDeleted == false);
             return employee == null ? null : new Employee { FirstName = employee.FirstName, Username = employee.Username, LastName = employee.LastName, Id = employee.Id };
         }
 
@@ -55,7 +55,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         internal static List<Employee> GetAllEmployees()
         {
             OrderManagementDataContext context = new OrderManagementDataContext();
-            return context.Employees.Where(x => !x.IsDeleted ?? true).ToList();
+            return context.Employees.Where(x => x.IsDeleted == false).ToList();
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace USAbleLife.OrderManagement.Data.DataAccess
         internal static bool UsernameIsUnique(string username, long id)
         {
             OrderManagementDataContext context = new OrderManagementDataContext();
-            return !context.Employees.Where(x => x.Id != id).Where(x => !x.IsDeleted ?? true).Any(x => x.Username.Equals(username));
+            return !context.Employees.Where(x => x.Id != id).Where(x => x.IsDeleted == false).Any(x => x.Username == username);
         }
 
         /// <summary>

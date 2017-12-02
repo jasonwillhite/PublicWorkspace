@@ -20,6 +20,11 @@ namespace USAbleLife.OrderManagement.Web.Controllers
         public ActionResult Index(int page = 1, long id = -1)
         {
             List<MealOrder> orders = Order.GetMealOrders().OrderByDescending(x => x.Created).ToList();
+            foreach(var t in orders)
+            {
+                var w1 = t.TotalDiscount;
+                var w2 = t.Total;
+            }
             MealOrderPagingResult result = new MealOrderPagingResult
             {
                 CurrentPage = page,
